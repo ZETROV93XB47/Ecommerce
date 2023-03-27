@@ -20,6 +20,9 @@ public class Produit {
     @Column(name = "Nom", nullable = false)
     private String name;
 
+    @Column(name = "Prix", nullable = false)
+    private float price;
+
     @Column(name = "Marque", nullable = false)
     private Marque brand;
 
