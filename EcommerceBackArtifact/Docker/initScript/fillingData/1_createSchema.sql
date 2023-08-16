@@ -1,11 +1,11 @@
-CREATE DATABASE IF NOT EXISTS novatechDB;
+CREATE DATABASE IF NOT EXISTS novatech;
 
 #DROP TABLE IF EXISTS Clients;
 #DROP TABLE IF EXISTS Commandes;
 #DROP TABLE IF EXISTS Produits;
 #DROP TABLE IF EXISTS Details_cmd;
 
-use novatechDB;
+use novatech;
 
 
 CREATE TABLE clients (
@@ -71,11 +71,6 @@ CREATE TABLE details_cmd(
     FOREIGN KEY (ProduitsID)
     REFERENCES produits(Id_pt)
 
-    );
-
-    CREATE TABLE photo (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        photo BLOB
     );
 
 

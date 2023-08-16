@@ -1,6 +1,6 @@
-from random import randint
-from PIL import Image
 import base64
+from random import randint
+
 
 def nameGen():
     tab = ['Sybill', 'Rylee', 'Cassidy', 'Coby', 'Brock', 'Florence', 'Wallace', 'Hermione', 'Tamara', 'Keane', 'Castor', 'Lacota', 'Brandon', 'Priscilla', 'Zelda', 'Zeus', 'Buckminster', 'Karina', 'Daniel', 'Isadora', 'Tasha', 'Sybil', 'Graham', 'Stacy', 'Nola', 'Carter', 'Callie', 'Zephania', 'Sydney', 'Graham', 'Robert', 'Anjolie', 'Grady', 'Macaulay', 'Medge', 'Belle', 'Glenna', 'Yeo', 'Irma', 'Kato', 'Faith', 'Phyllis', 'Jackson', 'Palmer', 'Hannah', 'Fulton', 'Callum', 'Griffith', 'Wendy', 'Erich', 'Basil', 'Eaton', 'Ross', 'Herman', 'Grant', 'Jemima', 'Cameran', 'Griffith', 'Akeem', 'Yeo', 'Maggie', 'Eric', 'Prescott', 'Carol', 'Jolie', 'Elmo', 'Julian', 'Nell', 'Hanna', 'Odette', 'Germane', 'Logan', 'Xander', 'Lacota', 'Delilah', 'Damian', 'Erasmus', 'Courtney', 'Yoshi', 'Nigel', 'Dana', 'Hoyt', 'Justina', 'Cody', 'Davis', 'Chancellor', 'Coby', 'Lawrence', 'Quin', 'Dustin', 'Madison', 'Francis', 'Kendall', 'Wyatt', 'Keegan', 'Matthew', 'Quentin', 'Tashya', 'Laith', 'Shaeleigh', 'Dale', 'Holcomb', 'Howe', 'Odom', 'Campos', 'Oneal', 'Chambers', 'Gardner', 'Stanley', 'Bauer', 'Fox', 'Stanley', 'Castaneda', 'Dillon', 'Rice', 'Hartman', 'Olson', 'Banks', 'Gordon', 'Park', 'Leach', 'Nichols', 'Herring', 'Hays', 'Melendez', 'Farley', 'Murphy', 'Estrada', 'Mann', 'Stone', 'Allen', 'Reed', 'Bruce', 'Branch', 'Watkins', 'Cantu', 'Guerrero', 'Brown', 'Phelps', 'Copeland', 'Buckley', 'Hebert', 'Griffith', 'Sexton', 'Bolton', 'Hubbard', 'Phillips', 'Dillard', 'Mcdonald', 'Barber', 'Henry', 'Valencia', 'Reid', 'Grant', 'Pittman', 'Horton', 'Pollard', 'Lane', 'Palmer', 'Lowery', 'Calderon', 'Santos', 'Mcdaniel', 'Peck', 'Johnston', 'Pruitt', 'Kirk', 'Alexander', 'Hill', 'Barron', 'Tucker', 'Joyner', 'Daniels', 'Contreras', 'Giles', 'William', 'Petersen', 'Owens', 'Woods', 'White', 'Dodson', 'Riley', 'May', 'Maxwell', 'Willis', 'Drake', 'Cantu', 'Rivera', 'Hatfield', 'Jimenez', 'Lambert', 'Huffman', 'Hubbard', 'Ware', 'White', 'Haley', 'Fuentes', 'Boone', 'Rosario', 'Reyes']
@@ -51,7 +51,7 @@ def dateGen():
 
 
 def dateCommandesGen():
-    return (str(randint(2015, 2020)) + '-' + str(randint(1, 12)) + '-' + str(randint(1, 31)))
+    return (str(randint(2015, 2020)) + '-' + str(randint(1, 12)) + '-' + str(randint(1, 28)))
 
 def idClientGen():
     return str(randint(1, 100))
@@ -59,10 +59,6 @@ def idClientGen():
 
 def genAllergies():
     return('')
-
-
-#Je dois y aller, j'ai grave faim
-
 
 
 def queryCommandesGen(i):
@@ -271,9 +267,9 @@ def queryDetails_cmd(i):
 
 i = 1
 
-fichier = open("produits3.sql", "a")
-while (i < 1001):
-    fichier.write("\n" + queryProduits(i))
+fichier = open("commandes.sql", "a")
+while (i < 201):
+    fichier.write("\n" + queryCommandesGen(i))
     i+=1
 fichier.close()
 # 
