@@ -17,7 +17,7 @@ import static org.springframework.http.ResponseEntity.ok;
 @RequiredArgsConstructor
 public class ClientController {
 
-    private final ClientService clientService;
+private final ClientService clientService;
 
     @GetMapping(value = "/users/getAll", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Clients>> geAllUsers() {

@@ -57,33 +57,11 @@ public class Produit {
     private String Connectivite;
 
     @Column(name = "Photo")
-    private String photoPath;
+    private Byte[] photo;
 
     @Column(name = "Stock")
     private int stock;
 
     @Column(name = "Description_Pt", nullable = false)
     private String description;
-
-    /*
-    	Nom VARCHAR(100) NOT NULL,
-	Prix FLOAT NOT NULL,
-	Marque Varchar(100) NOT NULL,
-	Categorie Varchar(100) NOT NULL,
-	CPU Varchar(100) NOT NULL,
-    GPU Varchar(100) NOT NULL,
-    RAM Varchar(100) NOT NULL,
-    DD Varchar(100) NOT NULL,
-    SSD Varchar(100),
-    Ecran Varchar(100) NOT NULL,
-    Diagonale INT NOT NULL,
-    OS Varchar(100) NULL,
-    Connectivite Varchar(100) NOT NULL,
-    Photo Varchar(255) NOT NULL,
-    Stock INT NOT NULL,
-    Description_Pt Text,
-	PRIMARY KEY (Id_pt)
-
-    * */
-
 }

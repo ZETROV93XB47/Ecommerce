@@ -10,7 +10,7 @@ import static java.util.Arrays.stream;
 public enum DISPLAY_TYPE {
 
     VA(1),
-    LCD(8),
+    LCD(2),
     PVA(3),
     AMVA(4),
     AMVA_PLUS(5),

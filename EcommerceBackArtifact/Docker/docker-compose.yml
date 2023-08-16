@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  novatechdatabase:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: reznov
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - ./initScript/createSchema.sql:/docker-entrypoint-initdb.d/1.sql
+      - ../src/main/resources/Images:/docker-entrypoint-initdb.d/Images
+      - ./initScript/init.sh:/docker-entrypoint-initdb.d/2_init.sh
+      - ./initScript/initData.sql:/docker-entrypoint-initdb.d/3.sql
