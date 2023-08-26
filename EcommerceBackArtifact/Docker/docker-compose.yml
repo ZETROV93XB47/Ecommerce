@@ -2,12 +2,11 @@ version: '3.8'
 
 services:
   novatechdatabase:
-    image: mysql
+    image: mysql:8.1.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 'root'
-      MYSQL_USER: reznov
-      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: novatech
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
     ports:
       - "3306:3306"
 

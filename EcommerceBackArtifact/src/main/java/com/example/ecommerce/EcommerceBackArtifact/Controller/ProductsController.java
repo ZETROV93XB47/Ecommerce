@@ -1,8 +1,10 @@
 package com.example.ecommerce.EcommerceBackArtifact.Controller;
 
+import com.example.ecommerce.EcommerceBackArtifact.Dto.ProduitDto;
 import com.example.ecommerce.EcommerceBackArtifact.Model.Produit;
 import com.example.ecommerce.EcommerceBackArtifact.Service.ProductsService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,29 +19,36 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
+@Slf4j
 public class ProductsController {
 
     private final ProductsService productsService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/products/pc/getAllProducts", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Produit>> getAllPc() {
         List<Produit> produits = productsService.getAllProducts();
         return ok(produits);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/products/pc/getHomeProducts", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Produit>> getHomePc() {
-        List<Produit> produits = productsService.getHomeProducts(PageRequest.of(0,10));
+    public ResponseEntity<List<ProduitDto>> getHomePc() {
+        List<ProduitDto> produits = productsService.getHomeProducts(PageRequest.of(0,10));
         return ok(produits);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/products/pc/{pcId}", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Produit> getPcById(@PathVariable long pcId) throws Exception {
-        Produit produit = productsService.getProductsById(pcId);
+    public ResponseEntity<ProduitDto> getPcById(@PathVariable long pcId) throws Exception {
+        ProduitDto produit = productsService.getProductsById(pcId);
         return ok(produit);
+    }
+
+    @GetMapping(value = "/products/pc/name/{pcName}", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ProduitDto>> getPcByNameLike(@PathVariable String pcName) {
+        List<ProduitDto> produits = productsService.getProductsByNameLike(pcName);
+        log.info(pcName);
+        System.out.println(pcName);
+        return ok(produits);
     }
 
 }

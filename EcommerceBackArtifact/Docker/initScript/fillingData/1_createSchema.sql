@@ -36,7 +36,7 @@ CREATE TABLE produits (
     Diagonale INT NOT NULL,
     OS Varchar(100) NULL,
     Connectivite Varchar(100) NOT NULL,
-    Photo MEDIUMBLOB NOT NULL,
+    Photo Varchar(100) NOT NULL,
     Stock INT NOT NULL,
     Description_Pt Text,
 	PRIMARY KEY (Id_pt)

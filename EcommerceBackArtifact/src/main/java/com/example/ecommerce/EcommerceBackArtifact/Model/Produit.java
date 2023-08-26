@@ -5,7 +5,12 @@ import com.example.ecommerce.EcommerceBackArtifact.Constants.DISPLAY_TYPE;
 import com.example.ecommerce.EcommerceBackArtifact.Constants.Marque;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity
@@ -57,7 +62,7 @@ public class Produit {
     private String Connectivite;
 
     @Column(name = "Photo")
-    private Byte[] photo;
+    private String photo;
 
     @Column(name = "Stock")
     private int stock;
@@ -65,3 +70,5 @@ public class Produit {
     @Column(name = "Description_Pt", nullable = false)
     private String description;
 }
+/*    @Column(name = "Photo")
+    private Byte[] photo;*/
