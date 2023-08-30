@@ -33,13 +33,19 @@ public class ProductsController {
 
     @GetMapping(value = "/products/pc/getHomeProducts", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ProduitDto>> getHomePc() {
-        List<ProduitDto> produits = productsService.getHomeProducts(PageRequest.of(0,10));
+        List<ProduitDto> produits = productsService.getHomeProducts(PageRequest.of(0,8));
         return ok(produits);
     }
 
     @GetMapping(value = "/products/pc/{pcId}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<ProduitDto> getPcById(@PathVariable long pcId) throws Exception {
         ProduitDto produit = productsService.getProductsById(pcId);
+        return ok(produit);
+    }
+
+    @GetMapping(value = "/products/pc/{pcName}/{pcPrice}", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<ProduitDto> getProductsByNameAndPrice(@PathVariable String pcName, @PathVariable Long pcPrice) {
+        ProduitDto produit = productsService.getProductsByNameAndPrice(pcName, pcPrice);
         return ok(produit);
     }
 

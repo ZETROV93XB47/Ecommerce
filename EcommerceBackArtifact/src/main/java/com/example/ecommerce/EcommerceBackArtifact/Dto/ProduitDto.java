@@ -12,6 +12,9 @@ import lombok.Getter;
 public class ProduitDto {
 
     @JsonProperty
+    private Long id;
+
+    @JsonProperty
     private String name;
 
     @JsonProperty

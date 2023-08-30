@@ -13,6 +13,6 @@ public class EcommerceBackArtifactApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		System.out.println("Boom fire");
+		System.out.println("Server started !");
 	}
 }

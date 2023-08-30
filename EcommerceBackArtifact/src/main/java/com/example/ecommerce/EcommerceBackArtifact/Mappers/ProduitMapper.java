@@ -9,6 +9,7 @@ public class ProduitMapper {
 
     public ProduitDto mapToProduitDto(Produit produit) {
         return ProduitDto.builder()
+                .id(produit.getId())
                 .name(produit.getName())
                 .gpu(produit.getGpu())
                 .ssd(produit.getSsd())

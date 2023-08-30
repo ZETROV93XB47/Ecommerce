@@ -3,8 +3,6 @@
 bEcommerceBackArtifact/src/main/java/com/example/ecommerce/EcommerceBackArtifact/Model/Clients.java,d\5\d5e53e7687c2ac57e1c8363859986388eecdcf83
 ö
 jEcommerceBackArtifact/src/main/java/com/example/ecommerce/EcommerceBackArtifact/Service/ClientService.java,3/b/3bbacc228bde71045a59ff4ca6c33b121a547663
-†
-pEcommerceBackArtifact/src/main/java/com/example/ecommerce/EcommerceBackArtifact/Controller/ClientController.java,7/9/79242a26cfa2730db8f517a42f252b68c59fad13
 N
 EcommerceBackArtifact/mvnw.cmd,b/3/b3bffec1b836f56330a62c256e0343b1e9270981
 w
@@ -15,5 +13,19 @@ v
 FEcommerceBackArtifact/Docker/initScript/fillingData/3_produitsInit.sql,0/d/0dd4c3bab0d8b46adfa9303eeb9294b61ed91e10
 u
 EEcommerceBackArtifact/Docker/initScript/fillingData/2_clientsInit.sql,b/6/b63f48a002f90eee96589063d1b64a15b1222dc8
-•
-uEcommerceBackArtifact/src/main/java/com/example/ecommerce/EcommerceBackArtifact/EcommerceBackArtifactApplication.java,8/3/838927fae959af79dfb481c48bf4fb37724db898
+Å
+Q.idea/sonarlint/securityhotspotstore/0/d/0dd4c3bab0d8b46adfa9303eeb9294b61ed91e10,6/5/6576e181fa58dd5620131cd5fe194969546c6f48
+w
+G.idea/sonarlint/issuestore/0/d/0dd4c3bab0d8b46adfa9303eeb9294b61ed91e10,c/c/ccd208c9a83da754561071cb6f3bba83511fa8e9
+v
+FEcommerceBackArtifact/Docker/initScript/fillingData/1_createSchema.sql,3/b/3b2c5e3a7444b00acbcb15f9e00c46f0984433f1
+Å
+Q.idea/sonarlint/securityhotspotstore/4/5/4527eb707cd3649c881d1e68e640fb239cbac2d9,7/a/7aa9efa8a4e908e5e04dac2e7770ebce14123c17
+w
+G.idea/sonarlint/issuestore/4/5/4527eb707cd3649c881d1e68e640fb239cbac2d9,3/c/3ce2ad1183dd001b68ff8bcce5d01aa93d7ea9c4
+Å
+Q.idea/sonarlint/securityhotspotstore/3/b/3bbacc228bde71045a59ff4ca6c33b121a547663,7/2/72f71b292a0768932c41dda631df1d3281bd9ef6
+_
+/EcommerceBackArtifact/Docker/docker-compose.yml,5/6/56c6b7b22ed357bd99f82f2397b311fb141a421c
+w
+G.idea/sonarlint/issuestore/3/b/3bbacc228bde71045a59ff4ca6c33b121a547663,c/a/ca1d4131cd66a9edf753e4f11a736f5d2cf668d8

@@ -51,4 +51,10 @@ private final ProduitMapper produitMapper;
         return produits.stream().map(produitMapper::mapToProduitDto).toList();
     }
 
+    //Avec le peu de pc dans la base, on ne devrait avoir qu'une seule occurence mais dans le rare cas où on pourrait en avoir pusieurs, on renvoie le premier, ce sera corrigé plus tard pour faire une recherche plus approfondie
+    public ProduitDto getProductsByNameAndPrice(String name, long price) {
+        List<Produit> produits = productsRepository.findByNameLikeAndPrice(name, price);
+        return produits.stream().map(produitMapper::mapToProduitDto).toList().get(0);
+    }
+
 }
