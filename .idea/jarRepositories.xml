@@ -8,13 +8,13 @@
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
-      <option name="name" value="Nexus Central Mirror" />
-      <option name="url" value="https://nexus.mut.parimutuel.local:8443/repository/RTL/" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2" />
+      <option name="name" value="Nexus Central Mirror" />
+      <option name="url" value="https://nexus.mut.parimutuel.local:8443/repository/RTL/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />

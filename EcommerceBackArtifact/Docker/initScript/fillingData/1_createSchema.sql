@@ -17,6 +17,7 @@ CREATE TABLE clients (
 	Dt DATE,
     Email VARCHAR(100) UNIQUE NOT NULL,
 	Mdp VARCHAR(100) NOT NULL,
+    Role INT(1) NOT NULL DEFAULT 1,
 	PRIMARY KEY (Id_cl)
     );
 

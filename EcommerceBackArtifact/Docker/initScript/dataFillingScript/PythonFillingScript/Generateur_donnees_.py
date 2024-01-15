@@ -60,6 +60,11 @@ def idClientGen():
 def genAllergies():
     return('')
 
+def genRoles():
+    # tab = [1, 2]
+    tab = [2]
+    return(tab[randint(0, (len(tab)-1))])
+
 
 def queryCommandesGen(i):
     return ( 'INSERT INTO commandes VALUES (' + str(i) + ", " + idClientGen() + ", '" + dateCommandesGen() + ' 10:15:20' +"');")
@@ -91,7 +96,7 @@ def queryGenClient(i):
 
 
 def queryGenClient2(i):
-    req = "INSERT INTO clients (Email, Id_cl, Nom, Prenom, Sexe, Adresse, Dt, Mdp) VALUES ('"
+    req = "INSERT INTO clients (Email, Id_cl, Nom, Prenom, Sexe, Adresse, Dt, Mdp, Role) VALUES ('"
     nom = nameGen()
     prenom = nameGen()
     req += emailGen(nom, prenom)
@@ -109,6 +114,8 @@ def queryGenClient2(i):
     req += dateGen()
     req += "', '"
     req += mdpGen()
+    req += "', '"
+    req += str(genRoles())
     req += "'"
     req += ");"
     return req
@@ -219,7 +226,7 @@ def genPhoto2(marque, typepc, i):
 def brandConverter(brandNumber):
     brandNumber-=1
     tab = ["Asus", "HP", "Lenovo", "DELL", "AORUS", "MSI", "Acer", "Toshiba", "Alienware"]
-    return tab[brandNumber] 
+    return tab[brandNumber]
 
 def categoryConverter(categoryNumber):
     categoryNumber-=1
@@ -265,17 +272,17 @@ def queryDetails_cmd(i):
 #############################################################################################################################################################################################################################################################################################################################################
 
 
-i = 1
-
-fichier = open("commandes.sql", "a")
-while (i < 201):
-    fichier.write("\n" + queryCommandesGen(i))
-    i+=1
-fichier.close()
-# 
-# 
 # i = 1
-# 
+
+# fichier = open("commandes.sql", "a")
+# while (i < 201):
+#     fichier.write("\n" + queryCommandesGen(i))
+#     i+=1
+# fichier.close()
+#
+#
+# i = 1
+#
 # fichier = open("GenTables\commandes.sql", "a")
 # while (i < 201):
     # fichier.write("\n" + queryCommandesGen(i))
@@ -283,12 +290,12 @@ fichier.close()
 # fichier.close()
 
 
-# i = 1
-# 
-# fichier = open("GenTables\Details_cmd.sql", "a")
-# while (i < 201):
-    # fichier.write("\n" + queryDetails_cmd(i))
-    # i+=1
-# fichier.close()
+i = 1
+
+fichier = open("clients.sql", "a")
+while (i < 11):
+    fichier.write("\n" + queryGenClient2(i))
+    i+=1
+fichier.close()
 # 
 # 
