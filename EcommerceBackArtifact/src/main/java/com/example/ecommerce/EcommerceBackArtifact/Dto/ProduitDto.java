@@ -12,7 +12,7 @@ import lombok.Getter;
 public class ProduitDto {
 
     @JsonProperty
-    private Long id;
+    private Long productId;
 
     @JsonProperty
     private String name;

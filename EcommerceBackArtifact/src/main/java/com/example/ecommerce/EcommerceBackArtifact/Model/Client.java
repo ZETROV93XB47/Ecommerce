@@ -8,18 +8,18 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 @EqualsAndHashCode
-@Entity
+@RequiredArgsConstructor
 @Table(name = "clients")
 public class Client {//ParentEntity
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id_cl", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "clientId", nullable = false)
     private Long clientId;
 
     @Column(name = "Email", nullable = false, columnDefinition = "char(50)")

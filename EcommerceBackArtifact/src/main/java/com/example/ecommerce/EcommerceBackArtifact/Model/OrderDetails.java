@@ -7,15 +7,15 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "Commandes")
+@Table(name = "commandes")
 public class OrderDetails {
 
     @Id
-    @Column(name = "Id_cm")
+    @Column(name = "comandId")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
 
-    @Column(name = "Id_cl")
+    @Column(name = "clientId")
     private Long clientId;
 
     @Column(name = "Dte", columnDefinition = "TIMESTAMP")

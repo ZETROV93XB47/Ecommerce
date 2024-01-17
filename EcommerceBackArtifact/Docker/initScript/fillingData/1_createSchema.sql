@@ -4,13 +4,13 @@ CREATE DATABASE IF NOT EXISTS novatech;
 #DROP TABLE IF EXISTS commandes;
 #DROP TABLE IF EXISTS orders;
 #DROP TABLE IF EXISTS produits;
-#DROP TABLE IF EXISTS details_cmd;
+#DROP TABLE IF EXISTS commandDetails;
 
 use novatech;
 
 
 CREATE TABLE clients (
-	Id_cl INT UNSIGNED AUTO_INCREMENT,
+	clientId INT UNSIGNED AUTO_INCREMENT,
 	Nom VARCHAR(100) NOT NULL,
     Prenom VARCHAR(100) NOT NULL,
 	Sexe INT(1) NOT NULL,
@@ -19,26 +19,26 @@ CREATE TABLE clients (
     Email VARCHAR(100) UNIQUE NOT NULL,
 	Mdp VARCHAR(100) NOT NULL,
     Role INT(1) NOT NULL DEFAULT 1,
-	PRIMARY KEY (Id_cl)
+	PRIMARY KEY (clientId)
     );
 
 
     CREATE TABLE orders (
-    	order_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    	client_id INT UNSIGNED NOT NULL,
-    	order_date DATE NOT NULL,
+    	orderId INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    	clientId INT UNSIGNED NOT NULL,
+    	orderDate DATE NOT NULL,
 
-    	PRIMARY KEY (order_id),
+    	PRIMARY KEY (orderId),
 
-    	CONSTRAINT fk_client_id
-    	FOREIGN KEY (client_id)
-    	REFERENCES clients(Id_cl)
+    	CONSTRAINT fk_clientId
+    	FOREIGN KEY (clientId)
+    	REFERENCES clients(clientId)
 
         );
 
 
 CREATE TABLE produits (
-	Id_pt INT UNSIGNED NOT NULL,
+	productId INT UNSIGNED NOT NULL,
 	Nom VARCHAR(100) NOT NULL,
 	Prix FLOAT NOT NULL,
 	Marque INT NOT NULL,
@@ -54,45 +54,45 @@ CREATE TABLE produits (
     Connectivite Varchar(100) NOT NULL,
     Photo Varchar(100) NOT NULL,
     Stock INT NOT NULL,
-    Description_Pt Text,
+    productDescription Text,
     AssociatedOrderID INT UNSIGNED,
 
-	PRIMARY KEY (Id_pt),
+	PRIMARY KEY (productId),
 
-    CONSTRAINT fk_order_id
+    CONSTRAINT fk_orderId
     FOREIGN KEY (AssociatedOrderID)
-    REFERENCES orders(order_id)
+    REFERENCES orders(orderId)
     );
 
 
 CREATE TABLE commandes (
-	Id_cm INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	Id_client INT UNSIGNED NOT NULL,
+	commandId INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	clientId INT UNSIGNED NOT NULL,
 	Dte DATETIME NOT NULL,
 
-	PRIMARY KEY (Id_cm),
+	PRIMARY KEY (commandId),
 
 	CONSTRAINT fk_numero_client
-	FOREIGN KEY (Id_client)
-	REFERENCES clients(Id_cl)
+	FOREIGN KEY (clientId)
+	REFERENCES clients(clientId)
 
     );
 
 
-CREATE TABLE details_cmd(
-    Id_li INT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE commandDetails(
+    commandDetailsId INT UNSIGNED NOT NULL AUTO_INCREMENT,
     CommandeID INT UNSIGNED NOT NULL,
     ProduitsID INT UNSIGNED NOT NULL,
     Quantite INT NOT NULL,
 
-    PRIMARY KEY(Id_li),
+    PRIMARY KEY(commandDetailsId),
 
     CONSTRAINT fk_commande_id
     FOREIGN KEY (CommandeID)
-    REFERENCES commandes(Id_cm),
+    REFERENCES commandes(commandId),
 
     CONSTRAINT fk_produits_id
     FOREIGN KEY (ProduitsID)
-    REFERENCES produits(Id_pt)
+    REFERENCES produits(productId)
 
     );

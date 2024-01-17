@@ -3,19 +3,23 @@ package com.example.ecommerce.EcommerceBackArtifact.Model;
 import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Category;
 import com.example.ecommerce.EcommerceBackArtifact.Model.enums.DISPLAY_TYPE;
 import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Marque;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
 @Entity
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+@RequiredArgsConstructor
 @Table(name = "produits")
 public class Produit {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id_pt", nullable = false)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "productId", nullable = false)
+    private Long productId;
 
     @Column(name = "Nom", nullable = false)
     private String name;
@@ -62,13 +66,13 @@ public class Produit {
     @Column(name = "Stock")
     private int stock;
 
-    @Column(name = "Description_Pt", nullable = false)
+    @Column(name = "productDescription", nullable = false)
     private String description;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "order_id")
-    private Orders orders;
+    @Column(name = "AssociatedOrderID")
+    private Long associatedOrderID;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "orderId")
+    private Orders order;
 }
-/*    @Column(name = "Photo")
-    private Byte[] photo;*/

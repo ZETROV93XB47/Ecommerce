@@ -16,17 +16,18 @@ import java.util.List;
 public class Orders {//childEntity
 
     @Id
-    @Column(name = "order_id")
+    @Column(name = "orderId",  nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Id_cl")
+    @JoinColumn(name = "clientId")
     private Client client;
 
-    @Column(name = "order_date", columnDefinition = "DATE")
+    @Column(name = "orderDate", columnDefinition = "DATE")
     private LocalDate orderDate;
 
-    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Produit> productsList;
 
 }
