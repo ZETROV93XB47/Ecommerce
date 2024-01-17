@@ -1,9 +1,10 @@
 CREATE DATABASE IF NOT EXISTS novatech;
 
-#DROP TABLE IF EXISTS Clients;
-#DROP TABLE IF EXISTS Commandes;
-#DROP TABLE IF EXISTS Produits;
-#DROP TABLE IF EXISTS Details_cmd;
+#DROP TABLE IF EXISTS clients;
+#DROP TABLE IF EXISTS commandes;
+#DROP TABLE IF EXISTS orders;
+#DROP TABLE IF EXISTS produits;
+#DROP TABLE IF EXISTS details_cmd;
 
 use novatech;
 
@@ -20,6 +21,20 @@ CREATE TABLE clients (
     Role INT(1) NOT NULL DEFAULT 1,
 	PRIMARY KEY (Id_cl)
     );
+
+
+    CREATE TABLE orders (
+    	order_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    	client_id INT UNSIGNED NOT NULL,
+    	order_date DATE NOT NULL,
+
+    	PRIMARY KEY (order_id),
+
+    	CONSTRAINT fk_client_id
+    	FOREIGN KEY (client_id)
+    	REFERENCES clients(Id_cl)
+
+        );
 
 
 CREATE TABLE produits (
@@ -40,7 +55,13 @@ CREATE TABLE produits (
     Photo Varchar(100) NOT NULL,
     Stock INT NOT NULL,
     Description_Pt Text,
-	PRIMARY KEY (Id_pt)
+    AssociatedOrderID INT UNSIGNED,
+
+	PRIMARY KEY (Id_pt),
+
+    CONSTRAINT fk_order_id
+    FOREIGN KEY (AssociatedOrderID)
+    REFERENCES orders(order_id)
     );
 
 
@@ -48,6 +69,7 @@ CREATE TABLE commandes (
 	Id_cm INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	Id_client INT UNSIGNED NOT NULL,
 	Dte DATETIME NOT NULL,
+
 	PRIMARY KEY (Id_cm),
 
 	CONSTRAINT fk_numero_client
@@ -62,6 +84,7 @@ CREATE TABLE details_cmd(
     CommandeID INT UNSIGNED NOT NULL,
     ProduitsID INT UNSIGNED NOT NULL,
     Quantite INT NOT NULL,
+
     PRIMARY KEY(Id_li),
 
     CONSTRAINT fk_commande_id
@@ -73,6 +96,3 @@ CREATE TABLE details_cmd(
     REFERENCES produits(Id_pt)
 
     );
-
-
-

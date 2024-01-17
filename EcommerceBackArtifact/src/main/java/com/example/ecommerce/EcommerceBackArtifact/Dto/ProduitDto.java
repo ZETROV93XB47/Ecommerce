@@ -1,8 +1,8 @@
 package com.example.ecommerce.EcommerceBackArtifact.Dto;
 
-import com.example.ecommerce.EcommerceBackArtifact.Constants.Category;
-import com.example.ecommerce.EcommerceBackArtifact.Constants.DISPLAY_TYPE;
-import com.example.ecommerce.EcommerceBackArtifact.Constants.Marque;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Category;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.DISPLAY_TYPE;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Marque;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;

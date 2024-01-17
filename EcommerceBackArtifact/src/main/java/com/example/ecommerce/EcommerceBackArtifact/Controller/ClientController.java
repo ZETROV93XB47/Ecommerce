@@ -1,6 +1,6 @@
 package com.example.ecommerce.EcommerceBackArtifact.Controller;
 
-import com.example.ecommerce.EcommerceBackArtifact.Model.Clients;
+import com.example.ecommerce.EcommerceBackArtifact.Model.Client;
 import com.example.ecommerce.EcommerceBackArtifact.Service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +20,8 @@ public class ClientController {
 private final ClientService clientService;
 
     @GetMapping(value = "/users/getAll", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Clients>> geAllUsers() {
-        List<Clients> clients = clientService.getAllClients();
+    public ResponseEntity<List<Client>> geAllUsers() {
+        List<Client> clients = clientService.getAllClients();
         return ok(clients);
     }
 

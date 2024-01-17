@@ -1,6 +1,6 @@
 package com.example.ecommerce.EcommerceBackArtifact.Database.Converters;
 
-import com.example.ecommerce.EcommerceBackArtifact.Constants.Category;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Category;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

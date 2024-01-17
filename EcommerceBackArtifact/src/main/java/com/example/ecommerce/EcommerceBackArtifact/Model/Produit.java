@@ -1,20 +1,15 @@
 package com.example.ecommerce.EcommerceBackArtifact.Model;
 
-import com.example.ecommerce.EcommerceBackArtifact.Constants.Category;
-import com.example.ecommerce.EcommerceBackArtifact.Constants.DISPLAY_TYPE;
-import com.example.ecommerce.EcommerceBackArtifact.Constants.Marque;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Category;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.DISPLAY_TYPE;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Marque;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "Produits")
+@Table(name = "produits")
 public class Produit {
 
     @Id
@@ -69,6 +64,11 @@ public class Produit {
 
     @Column(name = "Description_Pt", nullable = false)
     private String description;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_id")
+    private Orders orders;
+
 }
 /*    @Column(name = "Photo")
     private Byte[] photo;*/

@@ -1,6 +1,6 @@
 package com.example.ecommerce.EcommerceBackArtifact.Database.Converters;
 
-import com.example.ecommerce.EcommerceBackArtifact.Constants.Marque;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Marque;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

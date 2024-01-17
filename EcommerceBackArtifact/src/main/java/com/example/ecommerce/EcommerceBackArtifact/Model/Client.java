@@ -1,20 +1,26 @@
 package com.example.ecommerce.EcommerceBackArtifact.Model;
 
-import com.example.ecommerce.EcommerceBackArtifact.Constants.Sexe;
-import lombok.Data;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Role;
+import com.example.ecommerce.EcommerceBackArtifact.Model.enums.Sexe;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@EqualsAndHashCode
 @Entity
-@Table(name = "Clients")
-public class Clients {
+@Table(name = "clients")
+public class Client {//ParentEntity
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id_cl", nullable = false)
-    private Long id;
+    private Long clientId;
 
     @Column(name = "Email", nullable = false, columnDefinition = "char(50)")
     private String email;
@@ -36,5 +42,12 @@ public class Clients {
 
     @Column(name = "Mdp", columnDefinition = "char(36)")
     private String password;
+
+    @Column(name = "Role", nullable = false)
+    private Role role;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<Orders> orders;
 
 }

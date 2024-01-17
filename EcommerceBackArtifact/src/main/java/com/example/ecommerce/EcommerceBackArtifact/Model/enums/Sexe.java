@@ -1,4 +1,4 @@
-package com.example.ecommerce.EcommerceBackArtifact.Constants;
+package com.example.ecommerce.EcommerceBackArtifact.Model.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

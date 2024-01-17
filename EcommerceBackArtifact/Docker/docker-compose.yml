@@ -6,16 +6,15 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: novatech
-      #MYSQL_ROOT_PASSWORD: 123
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
     ports:
       - "3306:3306"
 
     volumes:
       - ../src/main/resources/Images:/docker-entrypoint-initdb.d/Images
-      #- ./initScript/1_init.sh:/docker-entrypoint-initdb.d/1_init.sh
       - ./initScript/fillingData/1_createSchema.sql:/docker-entrypoint-initdb.d/1_createSchema.sql
       - ./initScript/fillingData/2_clientsInit.sql:/docker-entrypoint-initdb.d/2_clientsInit.sql
-      - ./initScript/fillingData/3_produitsInit.sql:/docker-entrypoint-initdb.d/3_produitsInit.sql
-      - ./initScript/fillingData/4_commandesInit.sql:/docker-entrypoint-initdb.d/4_commandesInit.sql
-      - ./initScript/fillingData/5_detailsCommandesInit.sql:/docker-entrypoint-initdb.d/5_detailsCommandesInit.sql
+      - ./initScript/fillingData/6_OrdersWithoutLinkingTable.sql:/docker-entrypoint-initdb.d/3_OrdersWithoutLinkingTable.sql
+      - ./initScript/fillingData/3_produitsInit.sql:/docker-entrypoint-initdb.d/4_produitsInit.sql
+      - ./initScript/fillingData/4_commandesInit.sql:/docker-entrypoint-initdb.d/5_commandesInit.sql
+      - ./initScript/fillingData/5_detailsCommandesInit.sql:/docker-entrypoint-initdb.d/6_detailsCommandesInit.sql
